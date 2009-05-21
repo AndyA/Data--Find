@@ -93,6 +93,17 @@ in the data structure in turn and should return true or false.
 Note that the match code will see I<all> of the elements in the data
 structure - not just the scalars.
 
+=head3 Iterator
+
+In a scalar context the returned iterator yields successive paths
+within the data structure. In an array context it returns the path and
+the associated element.
+
+  my $iter = diter $data;
+  while ( my ( $path, $obj ) = $iter->() ) {
+    print "$path, $obj\n";
+  }
+
 =cut
 
 sub diter {
@@ -127,8 +138,12 @@ sub diter {
           $handler->( $obj, @path );
         }
       }
-      return join '', @path if $matcher->( $obj );
+      if ( $matcher->( $obj ) ) {
+        my $path = join '', @path;
+        return wantarray ? ( $path, $obj ) : $path;
+      }
     }
+    return;
   };
 }
 
@@ -154,8 +169,8 @@ Similar to C<diter> but call a supplied callback with each
 matching path.
 
   dwith $data, qr/nice/, sub {
-    my $path = shift;
-    print "$path\n";
+    my ( $path, $obj ) = @_;
+    print "$path, $obj\n";
   };
 
 =cut
@@ -163,8 +178,8 @@ matching path.
 sub dwith {
   my $cb   = pop @_;
   my $iter = diter @_;
-  while ( defined( my $path = $iter->() ) ) {
-    $cb->( $path );
+  while ( my ( $path, $obj ) = $iter->() ) {
+    $cb->( $path, $obj );
   }
   return;
 }
