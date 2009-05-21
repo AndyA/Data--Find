@@ -1,6 +1,7 @@
 ---
 name: Data-Find
-version: 0.02
+version: 0.03
+
 author:
   - 'Andy Armstrong <andy@hexten.net>'
 abstract: Find data in arbitrary data structures
