@@ -85,6 +85,8 @@ The match expression can be
 
 =item * a code reference
 
+=item * C<undef>
+
 =back
 
 When the match expression is a code ref it will be passed each element
@@ -101,6 +103,9 @@ in the data structure in turn and should return true or false.
 
 Note that the match code will see I<all> of the elements in the data
 structure - not just the scalars.
+
+If the match expression is C<undef> it will match those elements whose
+value is also C<undef>.
 
 =head3 Iterator
 
