@@ -1,8 +1,11 @@
 Build.PL
 Changes
-MANIFEST
-README
+inc/MyBuilder.pm
 lib/Data/Find.pm
+MANIFEST
+MANIFEST.SKIP
+README
 t/00.load.t
+t/basic.t
 t/pod-coverage.t
 t/pod.t
