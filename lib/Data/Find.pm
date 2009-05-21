@@ -41,6 +41,15 @@ our $VERSION = '0.03';
 
 =head1 INTERFACE 
 
+Nothing is exported by default. Use, eg,
+
+  use Data::Find qw( dwith );
+
+to get the subroutines you need or call them with their fully
+qualified name:
+
+  my $iter = Data::Find::diter $data;
+
 =head2 C<< diter >>
 
 Given an arbitrary data structure and (optionally) an expression to
