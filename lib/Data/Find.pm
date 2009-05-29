@@ -17,11 +17,11 @@ Data::Find - Find data in arbitrary data structures
 
 =head1 VERSION
 
-This document describes Data::Find version 0.03
+This document describes Data::Find version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
