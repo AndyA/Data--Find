@@ -1,7 +1,6 @@
 ---
 name: Data-Find
 version: 0.03
-
 author:
   - 'Andy Armstrong <andy@hexten.net>'
 abstract: Find data in arbitrary data structures
@@ -9,7 +8,7 @@ license: perl
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Data-Find
   license: http://dev.perl.org/licenses/
-  repository: https://svn.hexten.net/andy/Perl/Data-Find/trunk
+  repository: git://github.com/AndyA/Data--Find.git
 requires:
   Data::Dumper: 0
   Scalar::Util: 0
@@ -17,7 +16,7 @@ requires:
 provides:
   Data::Find:
     file: lib/Data/Find.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
